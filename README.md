@@ -1,5 +1,9 @@
 # WAX Dev Testing Framework
 
+## TEMPORARY PATCH
+
+This package contains patches in `src/runnerHtml.js` and `src/runnerUrl.js`. This package is a temporary substitute for `@wally-ax/wax-dev` as a dependency of the `testaro` package, pending the resolution of [pull request 16](https://github.com/wallyax/wax-dev/pull/16).
+
 ## Description
 A lightweight and extensive automated accessibility testing framework
 
@@ -36,13 +40,13 @@ rules: An array of strings representing rule definitions. Available rules can be
 
 apiKey: A string required for the wax-dev to work. You can get the api key from [WallyAX Account Portal](https://account.wallyax.com)
 
-  
+
 
 ### Example Usage with Jest Testing Library in a React App
 
 runWax function takes the rendered or pre-rendered html content and options as input.
 
-runWaxUrl function takes the Website URL and options as input.  
+runWaxUrl function takes the Website URL and options as input.
 
 For a ButtonList component:
 
@@ -112,7 +116,7 @@ describe('Button Component Tests', () => {
       expect(violations).to.have.lengthOf(0);
     });
   });
-  
+
   it('write_file', () => {
     cy.writeFile('src/components/ui/tests/button_violation.json', violations);
   });

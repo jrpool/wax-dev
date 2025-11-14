@@ -1,6 +1,6 @@
 {
-  "name": "@wally-ax/wax-dev",
-  "version": "0.2.62",
+  "name": "@jrpool/wax-dev",
+  "version": "1.0.0",
   "description": "WallyAX's developer friendly accessibility test framework",
   "main": "index.js",
   "scripts": {

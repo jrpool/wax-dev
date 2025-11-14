@@ -33,8 +33,8 @@ const runner = function (code, options) {
             selector,
             component,
             issue_category_name,
-            groupData = {}
           } = item;
+          const groupData = item.groupData || {};
 
           const cleanedItem = {};
 

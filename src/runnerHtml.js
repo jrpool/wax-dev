@@ -34,9 +34,9 @@ const runner = function (code, options) {
           description,
           severity,
           code,
-          groupData = {}
         } = item;
-    
+        const groupData = item.groupData || {};
+
         const cleanedItem = {};
         if (element) cleanedItem.element = element;
         if (message) cleanedItem.message = message;
@@ -49,13 +49,13 @@ const runner = function (code, options) {
         if (groupData.example_after) cleanedItem.example_after = groupData.example_after;
         if (code) cleanedItem.code = code.split('_')[0].split(',')[0];
 
-    
+
         return cleanedItem;
       });
-    
+
       resolve(cleanedData);
     })
-    
+
       .catch((error) => reject(error));
   });
 };

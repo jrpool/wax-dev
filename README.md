@@ -1,5 +1,9 @@
 # WAX Dev Testing Framework
 
+## DECOMMISSIONING NOTICE
+
+This package as of April 2026 no longer succeeds in obtaining results from the WallyAx API. The WallyAx API appears to be no longer maintained. Therefore, WallyAx has been removed from the set of tools integrated by Testaro and from the set of tools whose rules are classified by Testilo.
+
 ## TEMPORARY PATCH
 
 This package contains patches in `src/runnerHtml.js` and `src/runnerUrl.js`. This package is a temporary substitute for `@wally-ax/wax-dev` as a dependency of the `testaro` package, pending the resolution of [pull request 16](https://github.com/wallyax/wax-dev/pull/16).

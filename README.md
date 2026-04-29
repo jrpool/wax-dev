@@ -2,13 +2,18 @@
 
 ## DECOMMISSIONING NOTICE
 
-This package as of April 2026 no longer succeeds in obtaining results from the WallyAx API. The WallyAx API appears to be no longer maintained. Therefore, WallyAx has been removed from the set of tools integrated by Testaro and from the set of tools whose rules are classified by Testilo.
+This package as of April 2026 no longer succeeded in obtaining results from the WallyAx API. The WallyAx API appears to be only infrequently maintained. It has been found to be almost completely redundant with other tools of Testaro. Because it is an API and therefore cannot be run on targets unless they are reachable from the public Internet, it merits inclusion in Testaro only if it offers substantial complementarity with other tools.
+
+In consideration of these facts, WallyAx was removed from the set of tools integrated by Testaro and from the set of tools whose rules are classified by Testilo in April 2026.
+
+The `testaro` branch contains the commits that would be appropriate if Testaro were to reintegrate WallyAx. The `main` branch contains only the commit making the bug correction described in the next section.
 
 ## TEMPORARY PATCH
 
-This package contains patches in `src/runnerHtml.js` and `src/runnerUrl.js`. This package is a temporary substitute for `@wally-ax/wax-dev` as a dependency of the `testaro` package, pending the resolution of [pull request 16](https://github.com/wallyax/wax-dev/pull/16).
+This package contains patches in `src/runnerHtml.js` and `src/runnerUrl.js`. This package is a temporary substitute for `@wally-ax/wax-dev` as a dependency of the `testaro` package, pending the resolution of [pull request 16](https://github.com/wallyax/wax-dev/pull/16). A message in April 2026 indicated that WallyAx intended to merge that pull request.
 
 ## Description
+
 A lightweight and extensive automated accessibility testing framework
 
 As a part of the WallyAX ecosystem accessibility tools, this package helps run accessibility tests on components and can easily be part of existing unit or integration testing.
@@ -43,8 +48,6 @@ apiKey:  "YOUR_WALLY_DEVELOPER_API_KEY"
 rules: An array of strings representing rule definitions. Available rules can be found [here]("https://kb.wallyax.com/docs/wax-dev/rules"). An empty array will include all rules.
 
 apiKey: A string required for the wax-dev to work. You can get the api key from [WallyAX Account Portal](https://account.wallyax.com)
-
-
 
 ### Example Usage with Jest Testing Library in a React App
 
@@ -96,7 +99,6 @@ The results will be an array of violations based on the config. Example:
     "message": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements"
   }
 ]
-
 ```
 
 ### Example Usage with Cypress Testing Library in a React App
@@ -139,7 +141,7 @@ export default waxConfig;
 
 ```
 
-### Results
+### Results with Cypress
 
 The results will be an array of violations based on the config. A **button_violation.json** file will be created and violations will be saved.
 
@@ -169,7 +171,7 @@ Create a folder inside the **.storybook** folder.
 
 Inside that folder, create a **register.js** and **panel.js** file.
 
-####  register.js
+###  register.js
 
 ```javascript
 // .storybook/my-addon/register.js - location
@@ -188,7 +190,8 @@ addons.register(ADDON_ID, () => {
   });
 });
 ```
-#### panel.js
+
+### panel.js
 
 ```javascript
 import React, { useEffect, useState } from 'react';
@@ -292,14 +295,14 @@ export default MyPanel;
 
 Add parameters in the stories with the respective test result file name. For example, for the **Button component**:
 
-```sh
+```javascript
 parameters: {
   myAddonParameter: 'This is constant information for the Button component.',
   fetchDataPath: 'src/components/ui/tests/button_violation.json'
 }
 ```
 
-**Button.stories.jsx**
+### Button.stories.jsx
 
 ```javascript
 import React from 'react';
@@ -330,7 +333,7 @@ Default.args = {
 
 Note: Run the test before starting the Storybook.
 
-#### You will see the new panel named "Wax-Dev" with violations in storybook.
+You will see the new panel named "Wax-Dev" with violations in storybook.
 
 ## License
 
